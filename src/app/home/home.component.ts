@@ -1,12 +1,15 @@
 import { Component, OnInit } from "@angular/core"
-
+import { ButtonUserComponent } from "../1_Atoms/AtomElement/button-user/button-user.component";
 @Component({
   selector: "home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  miInstance: ButtonUserComponent;
+  constructor() {
+    this.miInstance = new ButtonUserComponent();
+  }
 
   ngOnInit(): void {}
 }
