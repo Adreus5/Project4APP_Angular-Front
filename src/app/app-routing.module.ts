@@ -9,9 +9,15 @@ import { MajorsComponent } from "majors/majors.component"
 import { MajorsResolver } from "majors/majors.resolver"
 import { MajorStudentsResolver } from "majors/major-students/major-students.resolver"
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
+import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", component: StartPageComponent },
+  {
+    path: "start",
+    component: StartPageComponent
+  },
+  { path: "etudiants", component: HomeComponent },
   {
     path: "etudiants",
     component: StudentsComponent,

@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './button-user.component.scss'
 })
 export class ButtonUserComponent {
- title : string = "Sign Up";
+ title : string = "Sign Up now";
 
 }
