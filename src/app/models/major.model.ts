@@ -1,4 +1,4 @@
-import { Student } from "./student.model"
+import { Student } from "./user.model"
 
 export interface Major {
   id?: bigint

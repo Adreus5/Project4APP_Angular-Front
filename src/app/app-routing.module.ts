@@ -10,6 +10,7 @@ import { MajorsResolver } from "majors/majors.resolver"
 import { MajorStudentsResolver } from "majors/major-students/major-students.resolver"
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
+import {DashboardComponent} from "./admin_UserDash/dashboard.component";
 
 const routes: Routes = [
   { path: "", component: StartPageComponent },
@@ -19,11 +20,8 @@ const routes: Routes = [
   },
   { path: "etudiants", component: HomeComponent },
   {
-    path: "etudiants",
-    component: StudentsComponent,
-    resolve: {
-      students: StudentsResolver,
-    },
+    path: "Dashboard",
+    component: DashboardComponent,
   },
   {
     path: "details-etudiant/:id",
