@@ -16,4 +16,8 @@ export class DashboardComponent {
     UserService.findAll().subscribe(users => this.users=users);
   }
 
+  deleteUser(event: any, users: User) {
+    event.stopPropagation()
+    this.UserService.delete(users).subscribe(() => this.router.navigate(["users"]))
+  }
 }

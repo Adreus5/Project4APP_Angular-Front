@@ -11,4 +11,18 @@
       <th scope="col">Supprimer</th>
     </tr>
   </thead>
+  <tbody>
+    @for (user of users$ | async; track user) {
+      <tr routerLink="/details-etudiant/{{ user.id }}">
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.type_user }}</td>
+        <td>
+          <button mat-icon-button color="warn" (click)="deleteUser($event, user)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
 </table>
