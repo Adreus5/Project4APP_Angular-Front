@@ -10,7 +10,7 @@ import { HttpClient } from "@angular/common/http"
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  private usersURL = "http://localhost:8080/users"
+  private usersURL = "http://localhost:8080/utilisateurs"
 
   findAll(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(this.usersURL)
