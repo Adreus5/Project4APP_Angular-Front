@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router"
 import { HomeComponent } from "home/home.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
 import {DashboardComponent} from "./userDashboard/dashboard.component";
+import {UserDetailsComponent} from "./userDetails/userDetails";
 
 const routes: Routes = [
   { path: "", component: StartPageComponent },
@@ -15,6 +16,10 @@ const routes: Routes = [
     path: "dashboard",
     component: DashboardComponent,
   },
+  {
+    path: "user-details/:id",
+    component: UserDetailsComponent,
+  }
 ]
 
 @NgModule({

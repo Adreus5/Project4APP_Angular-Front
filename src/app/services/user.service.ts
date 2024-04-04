@@ -23,7 +23,11 @@ export class UserService {
     return this.http.delete(`${this.usersURL}/${user.id}`)
   }
 
-  create(Utilisateur: Utilisateur) {
+  update(id: number, user: Utilisateur): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(`${this.usersURL}/${id}`, user)
+  }
 
+  create(user: Utilisateur): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(this.usersURL, user)
   }
 }

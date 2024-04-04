@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         @for (user of users ; track user) {
-            <tr routerLink="/details-etudiant/{{ user.id }}">
+            <tr routerLink="/user-details/{{ user.id }}">
                 <td>{{ user.id }}</td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>

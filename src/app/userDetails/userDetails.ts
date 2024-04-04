@@ -1,73 +1,65 @@
-import { Component } from "@angular/core"
-import { map, Observable } from "rxjs"
-import { Student } from "models/student.model"
-import { ActivatedRoute, Router } from "@angular/router"
-import { Course } from "models/course.model"
-import { CourseService } from "services/course.service"
-import { StudentService } from "services/student.service"
-import { Major } from "../../models/major.model"
-import { MajorService } from "../../services/major.service"
+import {Component} from "@angular/core"
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router"
+import {Lieu} from "models/lieu.model"
+import {LieuService} from "services/lieu.service"
+import {UserService} from "services/user.service"
+import {Film} from "../models/film.model"
+import {FilmService} from "../services/film.service"
+import {Utilisateur} from "../models/user.model";
+import {FormsModule} from "@angular/forms";
 
 @Component({
-  selector: "student-details",
-  templateUrl: "./student-details.component.html",
-  styleUrls: ["./student-details.component.scss"],
+  selector: "user-details",
+  templateUrl: "./userDetails.html",
+  styleUrls: ["./userDetails.scss"],
+  imports: [
+    FormsModule
+  ],
+  standalone: true
 })
-export class StudentDetailsComponent {
-  student$: Observable<Student> = this._route.data.pipe(map((data) => data["student"]))
-  allMajors$: Observable<Major[]> | undefined
-  allCourses$: Observable<Course[]> | undefined
-  majorSelectModel: Major | null = null
-  courseSelectModel: Course | null = null
-  notSelectedCourse: boolean | undefined
-  today = new Date(Date.now())
+export class UserDetailsComponent {
+  users: Utilisateur[] = []
+  user :Utilisateur | undefined
+  films: Film[] = []
+  lieux: Lieu[] = []
 
   constructor(
     private _route: ActivatedRoute,
-    private courseService: CourseService,
-    private studentService: StudentService,
-    private majorService: MajorService,
+    private LieuService: LieuService,
+    private UserService: UserService,
+    private FilmService: FilmService,
     private router: Router,
   ) {
-    this.allMajors$ = this.majorService.findAll()
+    const id : number = parseInt(_route.snapshot.params["id"],10);
+    UserService.findById(id).subscribe(user =>this.user=user);
+    UserService.findAll().subscribe(users => this.users = users);
+    LieuService.findAll().subscribe(lieux => this.lieux = lieux);
+    FilmService.findAll().subscribe(films => this.films = films);
   }
 
-  courseClick() {
-    this.allCourses$ = this.courseService.findAll()
+  filmClick() {
+    this.FilmService.findAll().subscribe(films => {
+      this.films = films;
+    });
   }
 
-  addCourseToStudent(student: Student) {
-    if (this.courseSelectModel != null) {
-      this.studentService.addCourseToStudent(student, this.courseSelectModel)
-    } else {
-      this.notSelectedCourse = true
-    }
+  lieuClick() {
+    this.LieuService.findAll().subscribe(lieux => {
+      this.lieux = lieux;
+    });
   }
 
-  removeCourseToStudent(student: Student, course: Course) {
-    this.studentService.removeCourseToStudent(student, course)
-  }
-
-  save(student: Student) {
+  save(user: Utilisateur) {
     const id = this._route.snapshot.params["id"]
 
-    if (this.majorSelectModel !== null) {
-      student.major = this.majorSelectModel
-    }
-
     if (id == "new") {
-      this.studentService.create(student).subscribe(() => {
-        this.router.navigate(["etudiants"])
+      this.UserService.create(user).subscribe(() => {
+        this.router.navigate(["users"])
       })
     } else {
-      this.studentService.update(id, student).subscribe(() => {
-        this.router.navigate(["etudiants"])
+      this.UserService.update(id, user).subscribe(() => {
+        this.router.navigate(["users"])
       })
     }
-  }
-
-  // because the format of the date doesn't fit date picker
-  updateBirthdate($event: any, student: Student) {
-    student.birthdate = new Date($event)
   }
 }
