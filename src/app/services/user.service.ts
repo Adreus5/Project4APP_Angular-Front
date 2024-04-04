@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { Utilisateur } from "models/user.model"
-import { Course } from "models/course.model"
 import { HttpClient } from "@angular/common/http"
 
 @Injectable({
@@ -20,8 +19,8 @@ export class UserService {
     return this.http.get<Utilisateur>(`${this.usersURL}/${id}`)
   }
 
-  delete(user: User) {
-    return this.http.delete(`${this.}/${user.id}`)
+  delete(user: Utilisateur) {
+    return this.http.delete(`${this.usersURL}/${user.id}`)
   }
 
 }
