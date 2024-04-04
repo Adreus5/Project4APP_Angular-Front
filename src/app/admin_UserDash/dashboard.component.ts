@@ -2,17 +2,17 @@ import { Component } from "@angular/core"
 import { Utilisateur } from "models/user.model"
 import { Router, RouterLink} from "@angular/router"
 import { UserService } from "services/user.service"
-import {AsyncPipe} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
+import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: "dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.scss"],
   imports: [
-    AsyncPipe,
     RouterLink,
-    MatIcon
+    MatIcon,
+    MatIconButton
   ],
   standalone: true
 })
