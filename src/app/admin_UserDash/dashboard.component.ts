@@ -1,7 +1,6 @@
 import { Component } from "@angular/core"
-import { map, Observable } from "rxjs"
 import { Utilisateur } from "models/user.model"
-import {ActivatedRoute, Router, RouterLink} from "@angular/router"
+import { Router, RouterLink} from "@angular/router"
 import { UserService } from "services/user.service"
 import {AsyncPipe} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
