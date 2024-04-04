@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
 import { HomeComponent } from "home/home.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
-import {DashboardComponent} from "./admin_UserDash/dashboard.component";
+import {DashboardComponent} from "./userDashboard/dashboard.component";
 
 const routes: Routes = [
   { path: "", component: StartPageComponent },

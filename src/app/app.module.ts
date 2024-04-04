@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { NavbarComponent } from "navbar/navbar.component"
 import { MatListModule } from "@angular/material/list"
 import { HomeComponent } from "home/home.component"
-import { DashboardComponent} from "./admin_UserDash/dashboard.component";
+import { DashboardComponent} from "./userDashboard/dashboard.component";
 import { FormsModule } from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
