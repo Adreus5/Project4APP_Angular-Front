@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^17.0.9",
     "@angular/router": "^17.0.9",
     "@popperjs/core": "^2.11.6",
+    "@splinetool/runtime": "^1.0.91",
     "bootstrap": "^5.3.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

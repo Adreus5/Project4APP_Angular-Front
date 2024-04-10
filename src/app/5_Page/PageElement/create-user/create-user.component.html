@@ -1,0 +1,75 @@
+<p>create-user works!</p>
+
+<h2>Contact</h2>
+<form onSubmit={handleSubmit}>
+  <div>
+    <label htmlFor="prenom">Prénom :</label>
+    <input
+      type="text"
+      id="prenom"
+      name="prenom"
+      value={formData.prenom}
+      onChange={handleChange}
+      required
+    />
+  </div>
+  <div>
+    <label htmlFor="nomFamille">Nom :</label>
+    <input
+      type="text"
+      id="nomFamille"
+      name="nomFamille"
+      value={formData.nomFamille}
+      onChange={handleChange}
+      required
+    />
+  </div>
+  <div>
+    <label htmlFor="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+    />
+  </div>
+  <div>
+    <label htmlFor="address">Adresse :</label>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      value={formData.address}
+      onChange={handleChange}
+      required
+    />
+  </div>
+  <div>
+    <label htmlFor="phone">Telephone :</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      value={formData.phone}
+      onChange={handleChange}
+      required
+    />
+  </div>
+  <div>
+    <label htmlFor="comment">Commentaire :</label>
+    <textarea
+      id="comment"
+      name="comment"
+      placeholder='Expliquez votre besoin, la race et l`âge du chien.'
+      value={formData.comment}
+      onChange={handleChange}
+      required
+    ></textarea>
+  </div>
+
+
+  <button type="submit">Envoyer</button>
+  <div className="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
+</form>

@@ -11,4 +11,8 @@ import { Component } from '@angular/core';
 export class ButtonUserComponent {
  title : string = "Sign Up now";
 
+
+  constructor() {}
+
+
 }

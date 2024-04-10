@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ButtonUserComponent } from "../../../1_Atoms/AtomElement/button-user/button-user.component";
 import {ButtonLogInComponent} from "../../../1_Atoms/AtomElement/button-log-in/button-log-in.component"
 
+
+
+
 @Component({
   selector: 'start-page',
   standalone: true,
@@ -18,5 +21,8 @@ export class StartPageComponent {
   constructor() {
     this.miInstance = new ButtonUserComponent();
     this.miSInstance = new ButtonLogInComponent();
+
+
   }
+
 }
