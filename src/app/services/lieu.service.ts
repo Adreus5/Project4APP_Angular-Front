@@ -19,8 +19,13 @@ export class LieuService {
     return this.http.get<Lieu>(`${this.lieuxURL}/${id}`)
   }
 
-  delete(film: Lieu) {
-    return this.http.delete(`${this.lieuxURL}/${film.id}`)
+  delete(lieu: Lieu) {
+    return this.http.delete(`${this.lieuxURL}/${lieu.id}`)
+  }
+
+  getLieuxByUserId(userId: number): Observable<Lieu[]> {
+    const url = `${this.lieuxURL}/user/${userId}`;
+    return this.http.get<Lieu[]>(url);
   }
 
 }
