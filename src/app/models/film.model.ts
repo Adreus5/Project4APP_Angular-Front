@@ -1,7 +1,7 @@
 
 export interface Film {
 
-  id?: bigint
+  id?: number
   nomFilm: string
   genre: string
   langue : string

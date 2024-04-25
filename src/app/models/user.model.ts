@@ -1,6 +1,6 @@
 
 export interface Utilisateur {
-  id?: bigint
+  id?: number
   nom: string
   prenom: string
   mail:string

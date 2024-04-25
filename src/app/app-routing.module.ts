@@ -4,6 +4,8 @@ import { HomeComponent } from "home/home.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
 import {DashboardComponent} from "./userDashboard/dashboard.component";
 import {UserDetailsComponent} from "./userDetails/userDetails";
+import { LoginComponent } from './login/login.component';  // Assurez-vous que le chemin est correct
+
 
 const routes: Routes = [
   { path: "", component: StartPageComponent },
@@ -19,7 +21,8 @@ const routes: Routes = [
   {
     path: "user-details/:id",
     component: UserDetailsComponent,
-  }
+  },
+  { path: 'login', component: LoginComponent },
 ]
 
 @NgModule({
