@@ -14,9 +14,9 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(mail: string): Observable<Utilisateur | null> {
-    // Assurez-vous que l'URL correspond à celle configurée dans votre backend
     return this.http.get<Utilisateur>(`${this.apiUrl}/mail?mail=${mail}`).pipe(
       map(user => {
+        console.log('User found:', user); // Ajoutez ceci pour voir l'objet utilisateur
         if (user) {
           this.currentUser = user;
           return user;
@@ -29,6 +29,7 @@ export class AuthService {
       })
     );
   }
+
 
   getCurrentUser(): Utilisateur | null {
     return this.currentUser;
