@@ -4,11 +4,11 @@ import { HomeComponent } from "home/home.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
 import {DashboardComponent} from "./userDashboard/dashboard.component";
 import {UserDetailsComponent} from "./userDetails/userDetails";
-import { LoginComponent } from './login/login.component';  // Assurez-vous que le chemin est correct
-
+import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
 
 const routes: Routes = [
-  { path: "", component: StartPageComponent },
+  { path: "",
+    component: CreateUserComponent },
   {
     path: "start",
     component: StartPageComponent
@@ -21,8 +21,7 @@ const routes: Routes = [
   {
     path: "user-details/:id",
     component: UserDetailsComponent,
-  },
-  { path: 'login', component: LoginComponent },
+  }
 ]
 
 @NgModule({
