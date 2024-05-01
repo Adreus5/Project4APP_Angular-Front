@@ -39,5 +39,6 @@ export class AuthService {
     // Vérifie si l'utilisateur courant est administrateur
     return this.currentUser?.typeUser === 'Admin';
   }
+
 }
 
