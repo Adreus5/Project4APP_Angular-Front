@@ -1,13 +1,21 @@
 <nav>
   <div>
-    <img src="assets/takima-logo.png" routerLink="/start" />
-    <mat-nav-list>
-      @for (link of links; track link) {
-      <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
-        <span>{{ link.name }}</span>
-        <!-- Comment -->
-      </a>
-      }
-    </mat-nav-list>
+    <div>
+      <img id="icone" src="assets/holiday.ico" routerLink="/start" />
+    </div>
+    <div>
+
+    </div>
+    <div>
+      <mat-nav-list>
+        @for (link of links; track link) {
+          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+            <span>{{ link.name }}</span>
+            <!-- Comment -->
+          </a>
+        }
+      </mat-nav-list>
+    </div>
   </div>
 </nav>
+
