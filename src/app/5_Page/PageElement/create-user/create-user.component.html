@@ -1,6 +1,6 @@
 <p>create-user works!</p>
 
-<h2>Contact</h2>
+
 <form onSubmit={handleSubmit}>
   <div>
     <label htmlFor="prenom">Prénom :</label>
@@ -8,7 +8,6 @@
       type="text"
       id="prenom"
       name="prenom"
-      value={formData.prenom}
       onChange={handleChange}
       required
     />
@@ -19,7 +18,6 @@
       type="text"
       id="nomFamille"
       name="nomFamille"
-      value={formData.nomFamille}
       onChange={handleChange}
       required
     />
@@ -30,7 +28,6 @@
       type="email"
       id="email"
       name="email"
-      value={formData.email}
       onChange={handleChange}
       required
     />
@@ -41,7 +38,6 @@
       type="text"
       id="address"
       name="address"
-      value={formData.address}
       onChange={handleChange}
       required
     />
@@ -52,21 +48,9 @@
       type="tel"
       id="phone"
       name="phone"
-      value={formData.phone}
       onChange={handleChange}
       required
     />
-  </div>
-  <div>
-    <label htmlFor="comment">Commentaire :</label>
-    <textarea
-      id="comment"
-      name="comment"
-      placeholder='Expliquez votre besoin, la race et l`âge du chien.'
-      value={formData.comment}
-      onChange={handleChange}
-      required
-    ></textarea>
   </div>
 
 
