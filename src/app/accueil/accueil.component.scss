@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  }
+}
