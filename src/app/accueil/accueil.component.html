@@ -1,0 +1,52 @@
+<div class="content">
+  <div class="d-flex align-items-center">
+    <h1>Films</h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Langue</th>
+      <th scope="col">Synopsis</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (film of films ; track film) {
+        <tr routerLink="/film-details/{{ film.id }}">
+          <td>{{ film.nomFilm }}</td>
+          <td>{{ film.genre }}</td>
+          <td>{{ film.langue }}</td>
+          <td>{{ film.synopsis }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="d-flex align-items-center">
+    <h1>Lieux</h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Ville</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (lieu of lieux ; track lieu) {
+        <tr routerLink="/lieu-details/{{ lieu.id }}">
+          <td>{{ lieu.nom }}</td>
+          <td>{{ lieu.adresse }}</td>
+          <td>{{ lieu.ville }}</td>
+          <td>{{ lieu.typeLieu }}</td>
+          <td>{{ lieu.description }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
