@@ -1,6 +1,7 @@
 
 export interface Lieu {
-  id?: number
+  id?: bigint
+  nom: string
   adresse: string
   ville: string
   typeLieu : string

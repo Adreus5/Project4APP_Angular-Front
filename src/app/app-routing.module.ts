@@ -4,16 +4,20 @@ import { HomeComponent } from "home/home.component"
 import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.component"
 import {DashboardComponent} from "./userDashboard/dashboard.component";
 import {UserDetailsComponent} from "./userDetails/userDetails";
-import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
+import { AccueilComponent } from './accueil/accueil.component';
+
 
 const routes: Routes = [
-  { path: "",
-    component: CreateUserComponent },
+  { path: "", component: StartPageComponent },
   {
     path: "start",
     component: StartPageComponent
   },
   { path: "etudiants", component: HomeComponent },
+  {
+    path: "accueil",
+    component: AccueilComponent,
+  },
   {
     path: "dashboard",
     component: DashboardComponent,
