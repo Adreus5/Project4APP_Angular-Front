@@ -30,4 +30,8 @@ export class UserService {
   create(user: Utilisateur): Observable<Utilisateur> {
     return this.http.post<Utilisateur>(this.usersURL, user)
   }
+
+  getNotesAndCommentsByUserId(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.usersURL}/user/${userId}/notes`);
+  }
 }

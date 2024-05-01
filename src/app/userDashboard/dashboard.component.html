@@ -1,29 +1,36 @@
 <div class="d-flex align-items-center">
-    <h1>Clients</h1>
+  <h1>Clients</h1>
+</div>
+<br>
+<div>
+  <h3>Add User:</h3>
+  <button mat-icon-button color="warn" (click)="addUser()">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">ID_Utilisateurs</th>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
-        <th scope="col">Type_User</th>
-        <th scope="col">Supprimer</th>
-    </tr>
-    </thead>
-    <tbody>
-        @for (user of users ; track user) {
-            <tr routerLink="/user-details/{{ user.id }}">
-                <td>{{ user.id }}</td>
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.typeUser }}</td>
-                <td>
-                    <button mat-icon-button color="warn" (click)="deleteUser($event, user)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </td>
-            </tr>
-        }
-    </tbody>
+  <thead>
+  <tr>
+    <th scope="col">ID_Utilisateurs</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prénom</th>
+    <th scope="col">Type_User</th>
+    <th scope="col">Supprimer</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track user) {
+      <tr routerLink="/user-details/{{ user.id }}">
+        <td>{{ user.id }}</td>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.typeUser }}</td>
+        <td>
+          <button mat-icon-button color="warn" (click)="deleteUser($event, user)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
 </table>
