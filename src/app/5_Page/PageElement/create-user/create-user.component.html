@@ -1,39 +1,49 @@
 <p>create-user works!</p>
-
-
-<form onSubmit={handleSubmit}>
-  <div>
-    <label htmlFor="prenom">Prénom :</label>
+<p>Joder</p>
+@if (user) {
+<form (ngSubmit)="save(user)" #studentForm="ngForm">
+  <div class="form-group">
+    <label for="firstName">Prénom :</label>
     <input
       type="text"
-      id="prenom"
-      name="prenom"
-      onChange={handleChange}
+      class="form-control"
+      id="firstName"
       required
+      [(ngModel)]="user.prenom"
+      name="firstName"
+      #firstName="ngModel"
     />
   </div>
-  <div>
-    <label htmlFor="nomFamille">Nom :</label>
+  <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">Le prénom est obligatoire
+  </div>
+  <div class="form-group">
+    <label for="lastName">Nom :</label>
     <input
       type="text"
-      id="nomFamille"
-      name="nomFamille"
-      onChange={handleChange}
+      class="form-control"
+      id="lastName"
       required
+      [(ngModel)]="user.nom"
+      name="lastName"
+      #lastName="ngModel"
     />
+    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">Le nom est obligatoire</div>
   </div>
   <div>
-    <label htmlFor="email">Email:</label>
+    <label for="email">Email:</label>
     <input
       type="email"
       id="email"
       name="email"
-      onChange={handleChange}
       required
+      [(ngModel)]="user.mail"
+      #email="ngModel"
     />
+  </div>
+  <div [hidden]="email.valid || email.pristine" class="alert alert-danger">L'email est obligatoire
   </div>
 
 
-  <button type="submit">Envoyer</button>
-  <div className="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
+  <button type="submit" [disabled]="!studentForm.form.valid">Envoyer</button>
 </form>
+}
