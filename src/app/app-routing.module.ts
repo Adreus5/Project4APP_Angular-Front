@@ -7,9 +7,12 @@ import {UserDetailsComponent} from "./userDetails/userDetails";
 import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
 import {LoginComponent} from "./login/login.component";
 import { AccueilComponent } from "./accueil/accueil.component";
+import {FilmDetailsComponent} from "./filmDetails/film-details";
+import {LieuDetailsComponent} from "./LieuDetails/lieu-details";
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'start', pathMatch: 'full' },
   { path: "create-user",
     component: CreateUserComponent },
   {
@@ -32,7 +35,9 @@ const routes: Routes = [
   {
     path: "user-details/:id",
     component: UserDetailsComponent,
-  }
+  },
+  { path: 'film-details/:id', component: FilmDetailsComponent },
+  { path: 'lieu-details/:id', component: LieuDetailsComponent }
 ]
 
 @NgModule({

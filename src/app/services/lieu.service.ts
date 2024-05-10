@@ -1,31 +1,34 @@
-import { Injectable } from "@angular/core"
-import { Observable } from "rxjs"
-import { Lieu } from "models/lieu.model"
-import { HttpClient } from "@angular/common/http"
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Lieu } from '../models/lieu.model';
+import { NoteLieu } from '../models/note-lieu.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root'
 })
 export class LieuService {
+  private lieuxURL = 'http://localhost:8080/lieux';
+
   constructor(private http: HttpClient) {}
 
-  private lieuxURL = "http://localhost:8080/lieux"
-
   findAll(): Observable<Lieu[]> {
-    return this.http.get<Lieu[]>(this.lieuxURL)
+    return this.http.get<Lieu[]>(this.lieuxURL);
   }
 
   findById(id: number): Observable<Lieu> {
-    return this.http.get<Lieu>(`${this.lieuxURL}/${id}`)
+    return this.http.get<Lieu>(`${this.lieuxURL}/${id}`);
   }
 
-  delete(lieu: Lieu) {
-    return this.http.delete(`${this.lieuxURL}/${lieu.id}`)
+  addNoteToLieu(lieuId: number, noteLieu: NoteLieu): Observable<NoteLieu> {
+    return this.http.post<NoteLieu>(`${this.lieuxURL}/${lieuId}/notes`, noteLieu);
   }
 
-  getLieuxByUserId(userId: number): Observable<Lieu[]> {
-    const url = `${this.lieuxURL}/user/${userId}`;
-    return this.http.get<Lieu[]>(url);
+  updateNoteToLieu(lieuId: number, noteLieu: NoteLieu): Observable<NoteLieu> {
+    return this.http.put<NoteLieu>(`${this.lieuxURL}/${lieuId}/notes`, noteLieu);
   }
 
+  getNoteByUserAndLieu(lieuId: number, userId: number): Observable<NoteLieu | null> {
+    return this.http.get<NoteLieu | null>(`${this.lieuxURL}/${lieuId}/notes/${userId}`);
+  }
 }
