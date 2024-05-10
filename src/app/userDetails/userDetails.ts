@@ -18,8 +18,6 @@ import {FormsModule} from '@angular/forms';
 })
 export class UserDetailsComponent implements OnInit {
   user: Utilisateur | undefined;
-  films: Film[] = [];
-  lieux: Lieu[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -30,33 +28,18 @@ export class UserDetailsComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const userId = parseInt(this.route.snapshot.params["id"], 10);
     if (!isNaN(userId)) {
       this.userService.findById(userId).subscribe({
         next: (user) => {
           this.user = user;
-          // Récupérer les films et les lieux avec vérifications de sécurité
-          this.filmService.getFilmsByUserId(userId).subscribe(films => {
-            this.films = films.map(film => ({
-              ...film,
-              note: film.noteFilms?.length ? film.noteFilms[0].note : 'Pas de note',
-              commentaire: film.noteFilms?.length ? film.noteFilms[0].commentaire : 'Pas de commentaire'
-            }));
-          });
-
-          this.lieuService.getLieuxByUserId(userId).subscribe(lieux => {
-            this.lieux = lieux.map(lieu => ({
-              ...lieu,
-              note: lieu.noteLieus?.length ? lieu.noteLieus[0].note : 'Pas de note',
-              commentaire: lieu.noteLieus?.length ? lieu.noteLieus[0].commentaire : 'Pas de commentaire'
-            }));
-          });
         },
         error: (error) => console.error('Error loading the user', error)
       });
     }
   }
+
   save(user: Utilisateur) {
     const id = this.user ? this.user.id : 'new';
 

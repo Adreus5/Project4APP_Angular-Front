@@ -31,46 +31,5 @@
     <button type="submit" mat-raised-button color="primary" [disabled]="!studentForm.form.valid">Enregistrer
     </button>
     <br>
-    <div *ngIf="films.length > 0; else noFilms">
-      <h2>Films Notés</h2>
-      <ul>
-        <li *ngFor="let film of films">{{ film.nomFilm }}
-          <div *ngIf="film.noteFilms && film.noteFilms.length > 0">
-          <span *ngFor="let note of film.noteFilms">
-            Note: {{ note.note }}, Commentaire: {{ note.commentaire || 'Pas de commentaire' }}
-          </span>
-          </div>
-          <div *ngIf="!film.noteFilms || film.noteFilms.length === 0">
-            Pas de note ou de commentaire.
-          </div>
-        </li>
-      </ul>
-    </div>
-    <ng-template #noFilms>
-      <h2>Films Notés</h2>
-      <p>Cet utilisateur n'a pas encore noté de films.</p>
-    </ng-template>
-    <br>
-    <!-- Affichage des lieux visités -->
-    <div *ngIf="lieux.length > 0; else noLieux">
-      <h2>Lieux Notés</h2>
-      <ul>
-        <li *ngFor="let lieu of lieux">{{ lieu.adresse }}, {{ lieu.ville }}
-          <!-- Affichage de la note et du commentaire si disponible -->
-          <div *ngIf="lieu.noteLieus && lieu.noteLieus.length > 0">
-          <span *ngFor="let note of lieu.noteLieus">
-            Note: {{ note.note }}, Commentaire: {{ note.commentaire || 'Pas de commentaire' }}
-          </span>
-          </div>
-          <div *ngIf="!lieu.noteLieus || lieu.noteLieus.length === 0">
-            Pas de note ou de commentaire.
-          </div>
-        </li>
-      </ul>
-    </div>
-    <ng-template #noLieux>
-      <h2>Lieux Notés</h2>
-      <p>Cet utilisateur n'a pas encore noté de lieux.</p>
-    </ng-template>
   </form>
 }

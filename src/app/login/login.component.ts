@@ -40,7 +40,7 @@ export class LoginComponent {
           if (this.authService.isAdmin()) {
             this.router.navigate(['/dashboard']);  // Rediriger vers le tableau de bord si admin
           } else {
-            this.router.navigate(['/']);  // Rediriger vers une autre page si non-admin
+            this.router.navigate(['/accueil']);  // Rediriger vers une autre page si non-admin
           }
         } else {
           this.errorMessage = 'Aucun utilisateur trouvé avec cet email';

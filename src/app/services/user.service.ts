@@ -1,13 +1,16 @@
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { Utilisateur } from "models/user.model"
-import { HttpClient } from "@angular/common/http"
+import {HttpClient, HttpHeaders} from "@angular/common/http"
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   private usersURL = "http://localhost:8080/utilisateurs"
 
@@ -24,11 +27,11 @@ export class UserService {
   }
 
   update(id: number | undefined, user: Utilisateur): Observable<Utilisateur> {
-    return this.http.post<Utilisateur>(`${this.usersURL}/${id}`, user)
+    return this.http.put<Utilisateur>(`${this.usersURL}/${id}`, user)
   }
 
   create(user: Utilisateur): Observable<Utilisateur> {
-    return this.http.post<Utilisateur>(this.usersURL, user)
+    return this.http.post<Utilisateur>(this.usersURL, user,this.httpOptions)
   }
 
   getNotesAndCommentsByUserId(userId: number): Observable<any> {
