@@ -8,6 +8,7 @@ import { ButtonUserComponent } from "../1_Atoms/AtomElement/button-user/button-u
 export class HomeComponent implements OnInit {
   miInstance: ButtonUserComponent;
   constructor() {
+    // @ts-ignore
     this.miInstance = new ButtonUserComponent();
   }
 

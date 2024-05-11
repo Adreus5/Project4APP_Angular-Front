@@ -17,6 +17,7 @@ export class StartPageComponent {
   miSInstance : ButtonLogInComponent
 
   constructor() {
+    // @ts-ignore
     this.miInstance = new ButtonUserComponent();
     // @ts-ignore
     this.miSInstance = new ButtonLogInComponent();

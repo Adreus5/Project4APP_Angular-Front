@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -9,10 +10,12 @@ import { Component } from '@angular/core';
   styleUrl: './button-user.component.scss'
 })
 export class ButtonUserComponent {
- title : string = "Sign Up now";
+  title: string = "Sign Up";
 
+  constructor(private router: Router) { }
 
-  constructor() {}
-
+  navigateToSignup(): void {
+    this.router.navigate(['/create-user']);
+  }
 
 }
