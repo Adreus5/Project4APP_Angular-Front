@@ -13,12 +13,16 @@ import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { HttpClientModule } from "@angular/common/http"
 import { ButtonUserComponent } from "./1_Atoms/AtomElement/button-user/button-user.component"
+import { RateFilmComponent } from './rate-film/rate-film.component';
+import { RateLieuComponent } from './rate-lieu/rate-lieu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
+    RateFilmComponent,
+    RateLieuComponent,
 
   ],
   imports: [

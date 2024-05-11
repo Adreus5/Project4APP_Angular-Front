@@ -7,6 +7,8 @@ import {UserDetailsComponent} from "./userDetails/userDetails";
 import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
 import {LoginComponent} from "./login/login.component";
 import { AccueilComponent } from "./accueil/accueil.component";
+import { RateFilmComponent } from './rate-film/rate-film.component';
+import { RateLieuComponent } from './rate-lieu/rate-lieu.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,14 @@ const routes: Routes = [
   {
     path: "user-details/:id",
     component: UserDetailsComponent,
+  },
+  {
+    path: 'rate-film/:id',
+    component: RateFilmComponent
+  },
+  {
+    path: 'rate-lieu/:id',
+    component: RateLieuComponent
   }
 ]
 
