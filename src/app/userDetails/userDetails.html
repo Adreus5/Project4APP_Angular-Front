@@ -28,6 +28,19 @@
       <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">Le prénom est obligatoire
       </div>
     </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        [(ngModel)]="user.mail"
+        #email="ngModel"
+      />
+    </div>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">L'email est obligatoire
+    </div>
     <button type="submit" mat-raised-button color="primary" [disabled]="!studentForm.form.valid">Enregistrer
     </button>
     <br>

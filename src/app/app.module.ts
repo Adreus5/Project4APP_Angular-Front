@@ -8,7 +8,7 @@ import { NavbarComponent } from "navbar/navbar.component"
 import { MatListModule } from "@angular/material/list"
 import { HomeComponent } from "home/home.component"
 import { DashboardComponent} from "./userDashboard/dashboard.component";
-import { FormsModule } from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { HttpClientModule } from "@angular/common/http"
@@ -32,6 +32,7 @@ import { ButtonUserComponent } from "./1_Atoms/AtomElement/button-user/button-us
     HttpClientModule,
     ButtonUserComponent,
     DashboardComponent,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
