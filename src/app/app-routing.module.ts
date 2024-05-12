@@ -5,7 +5,7 @@ import {StartPageComponent} from "./5_Page/PageElement/start-page/start-page.com
 import {DashboardComponent} from "./userDashboard/dashboard.component";
 import {UserDetailsComponent} from "./userDetails/userDetails";
 import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./5_Page/PageElement/login/login.component";
 import {AccueilComponent} from "./accueil/accueil.component";
 
 

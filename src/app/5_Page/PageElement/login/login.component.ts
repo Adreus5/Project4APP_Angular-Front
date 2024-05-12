@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
@@ -11,20 +11,9 @@ import { NgIf } from "@angular/common";
     FormsModule,
     NgIf
   ],
-  template: `
-    <div>
-      <br>
-      <input type="email" [(ngModel)]="mail" placeholder="Entrer votre Email">
-      <button (click)="onLogin()">Connexion</button>
-      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-    </div>
-  `,
-  styles: [`
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
-  `]
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
+
 })
 export class LoginComponent {
   mail: string = '';
