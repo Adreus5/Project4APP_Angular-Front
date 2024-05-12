@@ -46,7 +46,7 @@ export class UserDetailsComponent implements OnInit {
     if (id === 'new') {
       this.userService.create(user).subscribe(() => this.router.navigate(['users']));
     } else {
-      this.userService.update(id, user).subscribe(() => this.router.navigate(['users']));
+      this.userService.update(user.id, user).subscribe(() => this.router.navigate(['users']));
     }
   }
 }
