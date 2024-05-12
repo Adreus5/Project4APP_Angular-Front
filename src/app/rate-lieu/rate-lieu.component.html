@@ -1,7 +1,13 @@
+<!-- src/app/rate-lieu/rate-lieu.component.html -->
+<h2>Noter le Lieu</h2>
 <form (ngSubmit)="submit()">
-  <label>Note:</label>
-  <input type="number" [(ngModel)]="noteLieu.note" name="note" min="1" max="5" required>
-  <label>Commentaire:</label>
-  <textarea [(ngModel)]="noteLieu.commentaire" name="commentaire"></textarea>
-  <button type="submit">Envoyer</button>
+    <div>
+        <label>Note:</label>
+        <input type="number" [(ngModel)]="noteLieu.note" name="note" min="1" max="5" required>
+    </div>
+    <div>
+        <label>Commentaire:</label>
+        <textarea [(ngModel)]="noteLieu.commentaire" name="commentaire" required></textarea>
+    </div>
+    <button type="submit">Soumettre</button>
 </form>

@@ -9,8 +9,9 @@ export interface Film {
   noteFilms?: NoteFilm[]  // Ajouter cette ligne pour les notes sur les films
 }
 export interface NoteFilm {
-  id: number
-  note: number
-  commentaire: string
-  utilisateurId: number  // Si nécessaire pour référencer l'utilisateur
+  id?: number;
+  note: number;
+  commentaire: string;
+  filmId: number;
+  utilisateurId: number;
 }

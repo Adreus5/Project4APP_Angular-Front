@@ -14,14 +14,12 @@
     </tr>
     </thead>
     <tbody>
-      @for (film of films ; track film) {
-        <tr routerLink="/film-details/{{ film.id }}">
-          <td>{{ film.nomFilm }}</td>
-          <td>{{ film.genre }}</td>
-          <td>{{ film.langue }}</td>
-          <td>{{ film.synopsis }}</td>
-        </tr>
-      }
+    <tr *ngFor="let film of films" (click)="navigateToRateFilm(film.id)">
+      <td>{{ film.nomFilm }}</td>
+      <td>{{ film.genre }}</td>
+      <td>{{ film.langue }}</td>
+      <td>{{ film.synopsis }}</td>
+    </tr>
     </tbody>
   </table>
 
@@ -39,16 +37,13 @@
     </tr>
     </thead>
     <tbody>
-      @for (lieu of lieux ; track lieu) {
-        <tr routerLink="/lieu-details/{{ lieu.id }}">
-          <td>{{ lieu.nom }}</td>
-          <td>{{ lieu.adresse }}</td>
-          <td>{{ lieu.ville }}</td>
-          <td>{{ lieu.typeLieu }}</td>
-          <td>{{ lieu.description }}</td>
-        </tr>
-      }
+    <tr *ngFor="let lieu of lieux" (click)="navigateToRateLieu(lieu.id)">
+      <td>{{ lieu.nom }}</td>
+      <td>{{ lieu.adresse }}</td>
+      <td>{{ lieu.ville }}</td>
+      <td>{{ lieu.typeLieu }}</td>
+      <td>{{ lieu.description }}</td>
+    </tr>
     </tbody>
   </table>
-
 </div>

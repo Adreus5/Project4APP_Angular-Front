@@ -1,7 +1,12 @@
+<h2>Noter le Film</h2>
 <form (ngSubmit)="submit()">
-  <label>Note:</label>
-  <input type="number" [(ngModel)]="noteFilm.note" name="note" min="1" max="5" required>
-  <label>Commentaire:</label>
-  <textarea [(ngModel)]="noteFilm.commentaire" name="commentaire"></textarea>
-  <button type="submit">Envoyer</button>
+    <div>
+        <label>Note:</label>
+        <input type="number" [(ngModel)]="noteFilm.note" name="note" min="1" max="5" required>
+    </div>
+    <div>
+        <label>Commentaire:</label>
+        <textarea [(ngModel)]="noteFilm.commentaire" name="commentaire" required></textarea>
+    </div>
+    <button type="submit">Soumettre</button>
 </form>

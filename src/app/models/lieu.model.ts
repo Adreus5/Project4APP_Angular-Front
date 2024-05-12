@@ -10,8 +10,9 @@ export interface Lieu {
 }
 
 export interface NoteLieu {
-  id: number
-  note: number
-  commentaire: string
-  utilisateurId: number  // Si nécessaire
+  id?: number;
+  note: number;
+  commentaire: string;
+  lieuId: number;
+  utilisateurId: number;
 }
