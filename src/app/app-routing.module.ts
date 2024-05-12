@@ -7,6 +7,9 @@ import {UserDetailsComponent} from "./userDetails/userDetails";
 import {CreateUserComponent} from "./5_Page/PageElement/create-user/create-user.component"
 import {LoginComponent} from "./5_Page/PageElement/login/login.component";
 import {AccueilComponent} from "./accueil/accueil.component";
+import {CreateFilmComponent} from "./films/create-film/create-film.component";
+import {CreateLieuComponent} from "./lieux/create-lieu/create-lieu.component";
+
 
 
 const routes: Routes = [
@@ -15,6 +18,9 @@ const routes: Routes = [
     redirectTo: 'start',
     pathMatch: 'full'
   },
+
+  { path: 'create-film', component: CreateFilmComponent },
+  { path: 'create-lieu', component: CreateLieuComponent },
   {
     path: "create-user",
     component: CreateUserComponent

@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+    <label for="nomFilm">Nom du film:</label>
+    <input type="text" id="nomFilm" formControlName="nomFilm">
+
+    <label for="genre">Genre:</label>
+    <select id="genre" formControlName="genre">
+      <option value="" disabled>Choisir un genre</option>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+
+    <label for="langue">Langue:</label>
+    <select id="langue" formControlName="langue">
+      <option value="" disabled>Choisir une langue</option>
+      <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
+    </select>
+
+    <label for="synopsis">Synopsis:</label>
+    <textarea id="synopsis" formControlName="synopsis"></textarea>
+
+    <button type="submit" [disabled]="!filmForm.valid">Créer Film</button>
+  </form>
+</div>
