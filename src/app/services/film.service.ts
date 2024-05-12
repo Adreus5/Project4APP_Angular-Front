@@ -14,6 +14,8 @@ export class FilmService {
     return this.http.post(`${this.filmsURL}/rate`, noteFilm);
   }
 
+
+
   constructor(private http: HttpClient) {}
 
   findAll(): Observable<Film[]> {
