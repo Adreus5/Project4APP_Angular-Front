@@ -5,3 +5,4 @@ export interface Utilisateur {
   mail:string
   typeUser : string
 }
+

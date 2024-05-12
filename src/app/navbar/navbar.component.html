@@ -2,26 +2,34 @@
   <div>
     <img src="assets/holiday.ico" routerLink="/start" />
     <mat-nav-list>
-      @for (link of links; track link) {
-        <div>
-          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+      <ng-container *ngIf="authService.isLoggedIn()">
+        <div *ngFor="let link of links">
+          <a mat-list-item [routerLink]="link.href" routerLinkActive="active">
             <span>{{ link.name }}</span>
-            <!-- Comment -->
           </a>
         </div>
-      }
+      </ng-container>
     </mat-nav-list>
   </div>
-  <div id="log-sign"> <!-- Move this div to the right -->
+  <div id="log-sign" style="float: right;">
     <mat-nav-list>
-      @for (link of links2; track link) {
+      <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+        <!-- Logout Link positioned to the right -->
         <div>
-          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
-            <span>{{ link.name }}</span>
-            <!-- Comment -->
+          <a mat-list-item (click)="authService.logout()">
+            <span>Logout</span>
           </a>
         </div>
-      }
+      </ng-container>
+      <!-- Template for not logged in users -->
+      <ng-template #notLoggedIn>
+        <div *ngFor="let link of links2">
+          <a mat-list-item [routerLink]="link.href" routerLinkActive="active">
+            <span>{{ link.name }}</span>
+          </a>
+        </div>
+      </ng-template>
     </mat-nav-list>
   </div>
 </nav>
+

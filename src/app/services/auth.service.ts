@@ -40,5 +40,13 @@ export class AuthService {
     return this.currentUser?.typeUser === 'Admin';
   }
 
+  isLoggedIn(): boolean {
+    return !!this.currentUser;
+  }
+
+  logout(): void {
+    this.currentUser = null;
+
+  }
 }
 
