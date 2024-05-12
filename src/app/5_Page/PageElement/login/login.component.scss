@@ -1,70 +1,56 @@
+@use "theme";
 
-
-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-input,
-textarea {
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-textarea {
-  min-height: 100px;
-}
-
-.button-wrapper {
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+input, textarea, button {
+  width: 100%; // Ensures these elements take full width of their container
+}
+
+input, textarea {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
   padding: 8px 16px;
-  background-color: #4caf50;
+  background-color: theme.$common-red;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin: auto;
   margin-bottom: 20px;
-  width: 10%;
 }
 
 button:hover {
-  background-color: #45a049;
-}
-
-.alert {
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-}
-
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+  background-color: theme.$common-purple;
 }
 
 .error {
   color: red;
   margin-top: 10px;
 }
-
-.mail{
-  width: 50%;
-  margin: auto;
-}
-

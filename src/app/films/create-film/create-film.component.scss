@@ -1,4 +1,4 @@
-
+@use "theme";
 
 form {
   display: flex;
@@ -37,7 +37,7 @@ textarea {
 
 button {
   padding: 8px 16px;
-  background-color: #4caf50;
+  background-color: theme.$common-red;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: theme.$common-purple;
 }
 
 .alert {
