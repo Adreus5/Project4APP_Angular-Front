@@ -5,40 +5,43 @@ nav {
   background: linear-gradient(to right, theme.$common-purple, theme.$common-red);
   display: flex;
   align-items: center;
+  justify-content: space-between; // Ensures items are spaced between left and right
+  width: 100%;
+  padding: 0 20px;
 }
 
-div {
-  display: flex;
-  align-items: center;
-}
-
-img {
-  margin-left: 20px;
+.navbar-logo {
   height: 60px;
   transition: 0.3s;
-
   &:hover {
     transform: scale(1.1);
   }
 }
 
-mat-nav-list {
+.left-links, .right-links {
   display: flex;
-  flex-direction: row;
-  width: 250px;
+  align-items: center;
 }
 
-span,
+.mat-nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center; // Aligns the links vertically within the list
+}
+
 a {
   font-size: large;
   color: theme.$white;
   transition: 0.3s;
-
+  padding: 10px; // Adds padding around links for better touch targets and spacing
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); // Enhances interactivity with a hover effect
   }
 }
 
 #log-sign {
-  margin-left: auto; /* Pushes the div to the right */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; // Aligns login, signup, or logout links to the far right
 }
+

@@ -40,6 +40,11 @@ export class AuthService {
     return this.currentUser?.typeUser === 'Admin';
   }
 
+  isClient(): boolean {
+    // Vérifie si l'utilisateur courant est Client
+    return this.currentUser?.typeUser === 'Client';
+  }
+
   isLoggedIn(): boolean {
     return !!this.currentUser;
   }

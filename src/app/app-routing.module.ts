@@ -29,7 +29,6 @@ const routes: Routes = [
     path: "start",
     component: StartPageComponent
   },
-  {path: "etudiants", component: HomeComponent},
   {
     path: "accueil",
     component: AccueilComponent,

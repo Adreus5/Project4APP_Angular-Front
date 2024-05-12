@@ -1,35 +1,21 @@
-<nav>
-  <div>
-    <img src="assets/holiday.ico" routerLink="/start" />
-    <mat-nav-list>
-      <ng-container *ngIf="authService.isLoggedIn()">
-        <div *ngFor="let link of links">
-          <a mat-list-item [routerLink]="link.href" routerLinkActive="active">
-            <span>{{ link.name }}</span>
-          </a>
-        </div>
-      </ng-container>
-    </mat-nav-list>
+<nav class="navbar">
+  <img src="assets/holiday.ico" routerLink="/start" class="navbar-logo">
+  <div class="left-links">
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <a mat-list-item [routerLink]="'/accueil'" routerLinkActive="active" *ngIf="authService.isClient() || authService.isAdmin()">Accueil</a>
+      <a mat-list-item [routerLink]="'/dashboard'" routerLinkActive="active" *ngIf="authService.isAdmin()">Dashboard</a>
+      <a mat-list-item [routerLink]="'/create-film'" routerLinkActive="active" *ngIf="authService.isAdmin()">Add-Film</a>
+      <a mat-list-item [routerLink]="'/create-lieu'" routerLinkActive="active" *ngIf="authService.isAdmin()">Add-Place</a>
+    </ng-container>
   </div>
-  <div id="log-sign" style="float: right;">
-    <mat-nav-list>
-      <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
-        <!-- Logout Link positioned to the right -->
-        <div>
-          <a mat-list-item (click)="authService.logout()">
-            <span>Logout</span>
-          </a>
-        </div>
-      </ng-container>
-      <!-- Template for not logged in users -->
-      <ng-template #notLoggedIn>
-        <div *ngFor="let link of links2">
-          <a mat-list-item [routerLink]="link.href" routerLinkActive="active">
-            <span>{{ link.name }}</span>
-          </a>
-        </div>
-      </ng-template>
-    </mat-nav-list>
+
+  <div class="right-links">
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <a mat-list-item (click)="authService.logout()">Logout</a>
+    </ng-container>
+    <ng-container *ngIf="!authService.isLoggedIn()">
+      <a mat-list-item [routerLink]="'/login'" routerLinkActive="active">Login</a>
+      <a mat-list-item [routerLink]="'/create-user'" routerLinkActive="active">Sign Up</a>
+    </ng-container>
   </div>
 </nav>
-
