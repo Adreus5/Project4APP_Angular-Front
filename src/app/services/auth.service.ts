@@ -46,6 +46,7 @@ export class AuthService {
 
   logout(): void {
     this.currentUser = null;
+    window.location.href = 'http://localhost:4200/start';
 
   }
 }
