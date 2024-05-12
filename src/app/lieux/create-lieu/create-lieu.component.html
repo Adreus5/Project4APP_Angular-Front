@@ -1,0 +1,26 @@
+<form [formGroup]="lieuForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Nom du lieu:</label>
+    <input formControlName="nom" id="nom" type="text">
+  </div>
+  <div>
+    <label for="adresse">Adresse:</label>
+    <input formControlName="adresse" id="adresse" type="text">
+  </div>
+  <div>
+    <label for="ville">Ville:</label>
+    <input formControlName="ville" id="ville" type="text">
+  </div>
+  <div>
+    <label for="typeLieu">Type de lieu:</label>
+    <select formControlName="typeLieu" id="typeLieu">
+      <option value="" disabled>Choisir un type</option>
+      <option *ngFor="let type of typesLieu" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea formControlName="description" id="description"></textarea>
+  </div>
+  <button type="submit" [disabled]="lieuForm.invalid">Créer Lieu</button>
+</form>

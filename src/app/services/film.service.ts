@@ -1,31 +1,44 @@
-import { Injectable } from "@angular/core"
-import { Observable } from "rxjs"
-import { Film } from "models/film.model"
-import { HttpClient } from "@angular/common/http"
-import {Lieu} from "../models/lieu.model";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Film } from '../models/film.model';
+import { NoteFilm } from '../models/note-film.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root'
 })
 export class FilmService {
+  private filmsURL = 'http://localhost:8080/films';
+
   constructor(private http: HttpClient) {}
 
-  private filmsURL = "http://localhost:8080/films"
-
   findAll(): Observable<Film[]> {
-    return this.http.get<Film[]>(this.filmsURL)
+    return this.http.get<Film[]>(this.filmsURL);
   }
 
   findById(id: number): Observable<Film> {
-    return this.http.get<Film>(`${this.filmsURL}/${id}`)
+    return this.http.get<Film>(`${this.filmsURL}/${id}`);
+  }
+  addFilm(film: Film): Observable<Film> {
+    return this.http.post<Film>(this.filmsURL, film);
+  }
+  updateFilm(film: Film): Observable<Film> {
+    return this.http.put<Film>(`${this.filmsURL}/${film.id}`, film);
   }
 
-  delete(film: Film) {
-    return this.http.delete(`${this.filmsURL}/${film.id}`)
-  }
-  getFilmsByUserId(userId: number): Observable<Film[]> {
-    const url = `${this.filmsURL}/user/${userId}`;
-    return this.http.get<Film[]>(url);
+  deleteFilm(id: number): Observable<any> {
+    return this.http.delete(`${this.filmsURL}/${id}`);
   }
 
+  addNoteToFilm(filmId: number, noteFilm: NoteFilm): Observable<NoteFilm> {
+    return this.http.post<NoteFilm>(`${this.filmsURL}/${filmId}/notes`, noteFilm);
+  }
+
+  updateNoteToFilm(filmId: number, noteFilm: NoteFilm): Observable<NoteFilm> {
+    return this.http.put<NoteFilm>(`${this.filmsURL}/${filmId}/notes`, noteFilm);
+  }
+
+  getNoteByUserAndFilm(filmId: number, userId: number): Observable<NoteFilm | null> {
+    return this.http.get<NoteFilm | null>(`${this.filmsURL}/${filmId}/notes/${userId}`);
+  }
 }

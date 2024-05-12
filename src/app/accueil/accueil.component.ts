@@ -6,6 +6,7 @@ import { Lieu } from '../models/lieu.model';
 import {RouterLink} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'accueil',
@@ -15,7 +16,8 @@ import {MatIconButton} from "@angular/material/button";
   imports: [
     RouterLink,
     MatIcon,
-    MatIconButton
+    MatIconButton,
+    NgForOf
   ],
 })
 export class AccueilComponent implements OnInit {
