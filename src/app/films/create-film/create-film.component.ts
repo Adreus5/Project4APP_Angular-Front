@@ -28,6 +28,7 @@ export class CreateFilmComponent {
       nomFilm: ['', Validators.required],
       genre: ['', Validators.required],
       langue: ['', Validators.required],
+      realisateur:[''],
       synopsis: ['']
     });
   }

@@ -6,6 +6,7 @@ export interface Film {
   genre: string
   langue : string
   synopsis : string
+  realisateur: string;
   noteFilms?: NoteFilm[]  // Ajouter cette ligne pour les notes sur les films
 }
 export interface NoteFilm {
