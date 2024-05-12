@@ -3,44 +3,42 @@
 nav {
   height: 80px;
   background: linear-gradient(to right, theme.$common-purple, theme.$common-red);
+  display: flex;
+  align-items: center;
+}
 
-  div {
-    height: 100%;
-    display: flex;
-    align-items: center;
+div {
+  display: flex;
+  align-items: center;
+}
 
-    img {
-      margin-left: 20px;
-      height: 60px;
-      transition: 0.3s;
+img {
+  margin-left: 20px;
+  height: 60px;
+  transition: 0.3s;
 
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
 mat-nav-list {
-  margin-left: 50px;
   display: flex;
   flex-direction: row;
   width: 250px;
+}
 
-  span,
-  a {
-    font-size: large;
-    color: theme.$white;
-    transition: 0.3s;
+span,
+a {
+  font-size: large;
+  color: theme.$white;
+  transition: 0.3s;
 
-    &:hover {
-      transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.2);
   }
 }
-#icone{
-  filter: brightness(0) invert(1);
+
+#log-sign {
+  margin-left: auto; /* Pushes the div to the right */
 }
-
-
-

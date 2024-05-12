@@ -1,12 +1,26 @@
 <nav>
   <div>
-    <img src="assets/takima-logo.png" routerLink="/start" />
+    <img src="assets/holiday.ico" routerLink="/start" />
     <mat-nav-list>
       @for (link of links; track link) {
-      <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
-        <span>{{ link.name }}</span>
-        <!-- Comment -->
-      </a>
+        <div>
+          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+            <span>{{ link.name }}</span>
+            <!-- Comment -->
+          </a>
+        </div>
+      }
+    </mat-nav-list>
+  </div>
+  <div id="log-sign"> <!-- Move this div to the right -->
+    <mat-nav-list>
+      @for (link of links2; track link) {
+        <div>
+          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+            <span>{{ link.name }}</span>
+            <!-- Comment -->
+          </a>
+        </div>
       }
     </mat-nav-list>
   </div>

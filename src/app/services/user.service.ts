@@ -37,4 +37,8 @@ export class UserService {
   getNotesAndCommentsByUserId(userId: number): Observable<any> {
     return this.http.get<any>(`${this.usersURL}/user/${userId}/notes`);
   }
+  checkEmailNotTaken(mail: string): Observable<boolean> {
+    mail = encodeURIComponent(mail); // Encode l'email pour une utilisation sûre dans l'URL
+    return this.http.get<boolean>(`${this.usersURL}/${mail}`);
+  }
 }

@@ -1,0 +1,7 @@
+<h1>Log In</h1>
+<div>
+  <br>
+  <input class="mail" type="email" [(ngModel)]="mail" placeholder="Entrer votre Email">
+  <button (click)="onLogin()">Connexion</button>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>
