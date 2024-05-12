@@ -19,6 +19,16 @@ export class FilmService {
   findById(id: number): Observable<Film> {
     return this.http.get<Film>(`${this.filmsURL}/${id}`);
   }
+  addFilm(film: Film): Observable<Film> {
+    return this.http.post<Film>(this.filmsURL, film);
+  }
+  updateFilm(film: Film): Observable<Film> {
+    return this.http.put<Film>(`${this.filmsURL}/${film.id}`, film);
+  }
+
+  deleteFilm(id: number): Observable<any> {
+    return this.http.delete(`${this.filmsURL}/${id}`);
+  }
 
   addNoteToFilm(filmId: number, noteFilm: NoteFilm): Observable<NoteFilm> {
     return this.http.post<NoteFilm>(`${this.filmsURL}/${filmId}/notes`, noteFilm);

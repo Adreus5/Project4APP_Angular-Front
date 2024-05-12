@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Lieu } from '../models/lieu.model';
 import { NoteLieu } from '../models/note-lieu.model';
+import {Film} from "../models/film.model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +21,14 @@ export class LieuService {
     return this.http.get<Lieu>(`${this.lieuxURL}/${id}`);
   }
 
-  addNoteToLieu(lieuId: number, noteLieu: NoteLieu): Observable<NoteLieu> {
-    return this.http.post<NoteLieu>(`${this.lieuxURL}/${lieuId}/notes`, noteLieu);
+  addLieu(lieu: Lieu): Observable<Lieu> {
+    return this.http.post<Lieu>(this.lieuxURL, lieu);
+  }
+  updateLieu(lieu: Lieu): Observable<Lieu> {
+    return this.http.put<Lieu>(`${this.lieuxURL}/${lieu.id}`, lieu);
   }
 
-  updateNoteToLieu(lieuId: number, noteLieu: NoteLieu): Observable<NoteLieu> {
-    return this.http.put<NoteLieu>(`${this.lieuxURL}/${lieuId}/notes`, noteLieu);
-  }
-
-  getNoteByUserAndLieu(lieuId: number, userId: number): Observable<NoteLieu | null> {
-    return this.http.get<NoteLieu | null>(`${this.lieuxURL}/${lieuId}/notes/${userId}`);
+  deleteLieu(id: number): Observable<any> {
+    return this.http.delete(`${this.lieuxURL}/${id}`);
   }
 }
