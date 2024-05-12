@@ -15,6 +15,9 @@
       <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
     </select>
 
+    <label for="realisateur">Réalisateur</label>
+    <input type="text" id="realisateur" formControlName="realisateur">
+
     <label for="synopsis">Synopsis:</label>
     <textarea id="synopsis" formControlName="synopsis"></textarea>
 
